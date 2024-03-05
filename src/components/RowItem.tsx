@@ -3,7 +3,7 @@ import { View, StyleSheet, TouchableHighlight } from 'react-native';
 import type { ImageURISource } from 'react-native';
 
 import Icon from './Icon';
-import { Body, Caption1 } from './Typography/Typography';
+import { Body, Caption1 } from './Typography';
 import { withTheme } from '../core/theming';
 import type { Theme } from '../types/Theme';
 
@@ -36,6 +36,10 @@ export type Props = {
    * RowItem's onPress handler
    */
   onPress?: () => void;
+  /**
+   * RowItem's onLongPress handler
+   */
+  onLongPress?: () => void;
   /**
    * Internal props
    */
@@ -98,6 +102,7 @@ class RowItem extends React.Component<Props> {
   renderTouchableRow = () => (
     <TouchableHighlight
       onPress={this.props.onPress}
+      onLongPress={this.props.onLongPress}
       underlayColor={this.props.theme.footnoteColor}
       style={{ backgroundColor: this.props.theme.barColor }}
     >
