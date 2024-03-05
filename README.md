@@ -8,18 +8,33 @@
 
 ---
 
-![Build and test](https://github.com/callstack/react-native-ios-kit/workflows/Build%20and%20test/badge.svg)
-[![Version][version-badge]][package]
-[![MIT License][license-badge]][license]
-
-[![PRs Welcome][prs-welcome-badge]][prs-welcome]
-[![Chat][chat-badge]][chat]
-[![tweet][tweet-badge]][tweet]
-[![Sponsored by Callstack][callstack-badge]][callstack]
 
 ## Features
 
-You can find documentation with all list of features and components [here](https://callstack.github.io/react-native-ios-kit)
+This is a fork of react-native-ios-kit by callstack, thank you to them for creating this package.
+
+You can find original documentation with all list of features and components [here](https://callstack.github.io/react-native-ios-kit)
+
+## Changes
+
+- Merged [#211](https://github.com/callstack/react-native-ios-kit/pull/211) (from original repo) to Migrate to TypeScript
+- Merged [#2](https://github.com/Himonn/react-native-ios-kit/commit/87b64318c867eb1e53ce94bbe40504233717fb08) to add `onLongPress` to `RowItem` 
+
+## Fork Usage
+
+- Update your `package.json` to point to this repository for `react-native-ios-kit`
+
+
+```json
+  "dependencies": {
+    ...
+    "react-native-ios-kit": "https://github.com/Himonn/react-native-ios-kit/tarball/87b64318c867eb1e53ce94bbe40504233717fb08",
+  }
+```
+
+
+- Run `npm i`
+
 
 ## Try it out
 
