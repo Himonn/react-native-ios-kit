@@ -4,8 +4,8 @@ import RowItem from './RowItem';
 import { withTheme } from '../core/theming';
 import type { Theme } from '../types/Theme';
 import type { Props as RowProps } from './RowItem';
-import Slider from './Slider';
 import type { ImageURISource } from 'react-native';
+import Slider from '@react-native-community/slider';
 
 type Props = RowProps & {
   theme: Theme;
@@ -14,42 +14,31 @@ type Props = RowProps & {
   style?: any;
   icon?: ImageURISource;
   onPress?: Function;
-  first: boolean;
-  last: boolean;
+
+  sliderWidth: number;
 
   value: number;
-  stepValue: number;
-  minValue: number;
-  maxValue: number;
-  minIconName?: string;
-  maxIconName?: string;
-  minIconColor?: string;
-  maxIconColor?: string;
-  minIconSize?: number;
-  maxIconSize?: number;
+  step: number;
+  minimumValue: number;
+  maximumValue: number;
   onValueChange: (value: number) => void;
   onSlidingComplete?: (value: number) => void;
-  minTrackTintColor?: string;
-  maxTrackTintColor?: string;
+  minimumTrackTintColor?: string;
+  maximumTrackTintColor?: string;
 };
 
 class SliderRow extends React.Component<Props> {
   renderRight = () => (
     <Slider
       value={this.props.value}
-      stepValue={this.props.stepValue}
-      minValue={this.props.minValue}
-      maxValue={this.props.maxValue}
-      minIconName={this.props.minIconName}
-      maxIconName={this.props.maxIconName}
-      minIconColor={this.props.minIconColor}
-      maxIconColor={this.props.maxIconColor}
-      minIconSize={this.props.minIconSize}
-      maxIconSize={this.props.maxIconSize}
+      step={this.props.step}
+      minimumValue={this.props.minimumValue}
+      maximumValue={this.props.maximumValue}
       onValueChange={this.props.onValueChange}
       onSlidingComplete={this.props.onSlidingComplete}
-      minTrackTintColor={this.props.minTrackTintColor}
-      maxTrackTintColor={this.props.maxTrackTintColor}
+      style={{ width: this.props.sliderWidth }}
+      minimumTrackTintColor={this.props.minimumTrackTintColor}
+      maximumTrackTintColor={this.props.maximumTrackTintColor}
     />
   );
 
