@@ -16,6 +16,9 @@ type Props = RowProps & {
   onPress?: Function;
 
   sliderWidth: number;
+  disabled?: boolean;
+  inverted?: boolean;
+  tapToSeek?: boolean;
 
   value: number;
   step: number;
@@ -30,6 +33,9 @@ type Props = RowProps & {
 class SliderRow extends React.Component<Props> {
   renderRight = () => (
     <Slider
+      disabled={this.props.disabled}
+      inverted={this.props.inverted}
+      tapToSeek={this.props.tapToSeek}
       value={this.props.value}
       step={this.props.step}
       minimumValue={this.props.minimumValue}
