@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Slider, View, StyleSheet, ViewStyle, StyleProp } from 'react-native';
+import { View, StyleSheet, ViewStyle, StyleProp } from 'react-native';
+import Slider from '@react-native-community/slider';
 import type { Theme } from '../types/Theme';
 import { withTheme } from '../core/theming';
 import Icon from './Icon';
