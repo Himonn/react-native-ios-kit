@@ -16,7 +16,7 @@ export { default as ProgressBar } from './components/ProgressBar';
 export { default as RowItem } from './components/RowItem';
 export { default as SearchBar } from './components/SearchBar';
 export { default as SegmentedControl } from './components/SegmentedControl';
-export { default as Slider } from './components/Slider';
+export { default as SliderRow } from './components/SliderRow';
 export { default as Spinner } from './components/Spinner';
 export { default as Stepper } from './components/Stepper';
 export { default as Switch } from './components/Switch';
