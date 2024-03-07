@@ -71,7 +71,7 @@ class EmptyRow extends React.Component<Props> {
     const { renderMiddle, middleComponent } = this.props;
 
     if (renderMiddle) {
-      return <View style={styles.leftComponent}>{renderMiddle()}</View>;
+      return <View style={styles.middleComponent}>{renderMiddle()}</View>;
     }
 
     if (middleComponent && React.isValidElement(middleComponent)) {
