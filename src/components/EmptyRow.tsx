@@ -26,6 +26,14 @@ export type Props = {
    */
   renderLeft?: () => React.ReactNode;
   /**
+   * Middle Component
+   */
+  middleComponent?: React.ComponentType<React.ReactNode>;
+  /**
+   * Function which should return Element to be rendered in the middle of the row
+   */
+  renderMiddle?: () => React.ReactNode;
+  /**
    * RowItem's onPress handler
    */
   onPress?: () => void;
@@ -41,24 +49,6 @@ export type Props = {
 };
 
 class EmptyRow extends React.Component<Props> {
-  renderRight = () => {
-    const { renderRight, rightComponent } = this.props;
-
-    if (renderRight) {
-      return <View style={styles.rightComponent}>{renderRight()}</View>;
-    }
-
-    if (rightComponent && React.isValidElement(rightComponent)) {
-      return (
-        <View style={styles.rightComponent}>
-          {React.cloneElement(rightComponent)}
-        </View>
-      );
-    }
-
-    return null;
-  };
-
   renderLeft = () => {
     const { renderLeft, leftComponent } = this.props;
 
@@ -70,6 +60,42 @@ class EmptyRow extends React.Component<Props> {
       return (
         <View style={styles.leftComponent}>
           {React.cloneElement(leftComponent)}
+        </View>
+      );
+    }
+
+    return null;
+  };
+
+  renderMiddle = () => {
+    const { renderMiddle, middleComponent } = this.props;
+
+    if (renderMiddle) {
+      return <View style={styles.leftComponent}>{renderMiddle()}</View>;
+    }
+
+    if (middleComponent && React.isValidElement(middleComponent)) {
+      return (
+        <View style={styles.middleComponent}>
+          {React.cloneElement(middleComponent)}
+        </View>
+      );
+    }
+
+    return null;
+  };
+
+  renderRight = () => {
+    const { renderRight, rightComponent } = this.props;
+
+    if (renderRight) {
+      return <View style={styles.rightComponent}>{renderRight()}</View>;
+    }
+
+    if (rightComponent && React.isValidElement(rightComponent)) {
+      return (
+        <View style={styles.rightComponent}>
+          {React.cloneElement(rightComponent)}
         </View>
       );
     }
@@ -93,6 +119,7 @@ class EmptyRow extends React.Component<Props> {
         ]}
       >
         {this.renderLeft()}
+        {this.renderMiddle()}
         {this.renderRight()}
       </View>
     );
@@ -143,12 +170,16 @@ const styles = StyleSheet.create({
   separator: {
     height: StyleSheet.hairlineWidth,
   },
-  rightComponent: {
-    flexGrow: 1,
-    alignItems: 'flex-end',
-  },
   leftComponent: {
     flexGrow: 1,
     alignItems: 'flex-start',
+  },
+  middleComponent: {
+    flexGrow: 1,
+    alignItems: 'center',
+  },
+  rightComponent: {
+    flexGrow: 1,
+    alignItems: 'flex-end',
   },
 });
