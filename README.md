@@ -20,6 +20,7 @@ You can find original documentation with all list of features and components [he
 - Merged [#211](https://github.com/callstack/react-native-ios-kit/pull/211) (from original repo) to Migrate to TypeScript
 - Merged [#2](https://github.com/Himonn/react-native-ios-kit/pull/2) to add `onLongPress` to `RowItem`
 - Merged [#3](https://github.com/Himonn/react-native-ios-kit/pull/3) to remove `Slider` in favour of `@react-native-community/slider` and add `SliderRow`
+- Merged [#5](https://github.com/Himonn/react-native-ios-kit/pull/5) to add `EmptyRow`
 
 ## Fork Usage
 
