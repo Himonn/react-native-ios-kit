@@ -21,6 +21,7 @@ You can find original documentation with all list of features and components [he
 - Merged [#2](https://github.com/Himonn/react-native-ios-kit/pull/2) to add `onLongPress` to `RowItem`
 - Merged [#3](https://github.com/Himonn/react-native-ios-kit/pull/3) to remove `Slider` in favour of `@react-native-community/slider` and add `SliderRow`
 - Merged [#5](https://github.com/Himonn/react-native-ios-kit/pull/5) to add `EmptyRow`
+- Merged [#7](https://github.com/Himonn/react-native-ios-kit/pull/7) to add `onHeaderPress` to `TableView`
 
 ## Fork Usage
 
@@ -30,7 +31,7 @@ You can find original documentation with all list of features and components [he
 ```json
   "dependencies": {
     ...
-    "react-native-ios-kit": "https://github.com/Himonn/react-native-ios-kit/tarball/87b64318c867eb1e53ce94bbe40504233717fb08",
+    "react-native-ios-kit": "https://github.com/Himonn/react-native-ios-kit/tarball/<INSERT MOST RECENT COMMIT>",
   }
 ```
 
