@@ -23,6 +23,7 @@ You can find original documentation with all list of features and components [he
 - Merged [#3](https://github.com/Himonn/react-native-ios-kit/pull/3) to remove `Slider` in favour of `@react-native-community/slider` and add `SliderRow`
 - Merged [#5](https://github.com/Himonn/react-native-ios-kit/pull/5) to add `EmptyRow`
 - Merged [#7](https://github.com/Himonn/react-native-ios-kit/pull/7) to add `onHeaderPress` to `TableView`
+- Merged [#8](https://github.com/Himonn/react-native-ios-kit/pull/8) to add `disabledColoor` prop to `Button`
 
 ## Fork Usage
 
