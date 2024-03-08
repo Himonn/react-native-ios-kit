@@ -147,7 +147,6 @@ class EmptyRow extends React.Component<Props> {
               styles.separator,
               {
                 backgroundColor: theme.dividerColor,
-                marginLeft: 15,
               },
             ]}
           />
