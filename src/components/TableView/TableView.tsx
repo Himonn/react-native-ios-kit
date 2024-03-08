@@ -40,6 +40,10 @@ type Props = {
    */
   onFooterPress?: () => void;
   /**
+   * onPress handler of Footer component
+   */
+  onHeaderPress?: () => void;
+  /**
    * Children of TableView to render, e.g. RowItem's
    */
   children?: React.ReactNode;
@@ -60,12 +64,17 @@ class TableView extends React.Component<Props> {
       withoutFooter,
       headerStyle,
       footerStyle,
+      onHeaderPress,
       onFooterPress,
     } = this.props;
     return (
       <View>
         {!withoutHeader && !!header && (
-          <TableViewHeader header={header} style={headerStyle} />
+          <TableViewHeader
+            header={header}
+            style={headerStyle}
+            onPress={onHeaderPress}
+          />
         )}
         {React.Children.map(children, (child, idx) => {
           if (React.isValidElement(child)) {
