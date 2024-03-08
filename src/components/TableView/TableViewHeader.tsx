@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { withTheme } from '../../core/theming';
 import { Footnote } from '../Typography';
@@ -10,11 +10,13 @@ type Props = {
   header: string;
   theme: Theme;
   style?: StyleProp<ViewStyle>;
+  onPress?: () => void;
 };
 
 class TableViewHeader extends React.Component<Props> {
-  render() {
+  renderInnerPart() {
     const { header, theme, style } = this.props;
+
     return (
       <View
         style={[
@@ -28,6 +30,20 @@ class TableViewHeader extends React.Component<Props> {
         </Footnote>
       </View>
     );
+  }
+
+  render() {
+    const { onPress } = this.props;
+
+    if (onPress) {
+      return (
+        <TouchableOpacity onPress={onPress}>
+          {this.renderInnerPart()}
+        </TouchableOpacity>
+      );
+    } else {
+      return this.renderInnerPart();
+    }
   }
 }
 
