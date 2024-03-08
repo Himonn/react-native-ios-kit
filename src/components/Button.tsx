@@ -63,6 +63,7 @@ export type Props = {
    * Custom styles to apply to the button
    */
   disabledStyle?: StyleProp<ViewStyle>;
+  disabledColor?: string;
   children: React.ReactNode;
   /**
    * Used to locate the item for end to end tests
@@ -79,7 +80,14 @@ class Button extends React.Component<Props> {
   styles: GetStyleProp;
 
   _styleFromProps() {
-    const { centered, rounded, inverted, color, disabled } = this.props;
+    const {
+      centered,
+      rounded,
+      inverted,
+      color,
+      disabled,
+      disabledColor,
+    } = this.props;
     const styleFromProps: StyleObject[] = [];
 
     const appliedStyleProps = {
@@ -107,6 +115,12 @@ class Button extends React.Component<Props> {
     if (color && !disabled) {
       styleFromProps[styleFromProps.length] = {
         inner: { color },
+      };
+    }
+
+    if (disabledColor && disabled) {
+      styleFromProps[styleFromProps.length] = {
+        inner: { color: disabledColor },
       };
     }
 
