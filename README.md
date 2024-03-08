@@ -30,8 +30,7 @@ You can find original documentation with all list of features and components [he
 
 ```json
   "dependencies": {
-    ...
-    "react-native-ios-kit": "https://github.com/Himonn/react-native-ios-kit/tarball/<INSERT MOST RECENT COMMIT>",
+    "react-native-ios-kit": "https://github.com/Himonn/react-native-ios-kit/tarball/<INSERT MOST RECENT COMMIT HASH>",
   }
 ```
 
