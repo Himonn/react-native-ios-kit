@@ -45,6 +45,10 @@ export type Props = {
    */
   first?: boolean;
   last?: boolean;
+  /**
+   * Forces the separator to be full width at bottom
+   */
+  forceFullWidthBottomSeparator?: boolean;
 };
 
 class RowItem extends React.Component<Props> {
@@ -111,7 +115,13 @@ class RowItem extends React.Component<Props> {
   );
 
   render() {
-    const { last, onPress, theme, icon } = this.props;
+    const {
+      last,
+      onPress,
+      theme,
+      icon,
+      forceFullWidthBottomSeparator,
+    } = this.props;
     return (
       <View style={{ backgroundColor: theme.barColor }}>
         {onPress ? this.renderTouchableRow() : this.renderRow()}
@@ -121,7 +131,7 @@ class RowItem extends React.Component<Props> {
               styles.separator,
               {
                 backgroundColor: theme.dividerColor,
-                marginLeft: icon ? 54 : 15,
+                marginLeft: forceFullWidthBottomSeparator ? 0 : icon ? 54 : 15,
               },
             ]}
           />
