@@ -49,6 +49,10 @@ export type Props = {
    * Forces the separator to be full width at bottom
    */
   forceFullWidthBottomSeparator?: boolean;
+  /**
+   * Forces the separator to be full width at bottom
+   */
+  forceFullWidthTopSeparator?: boolean;
 };
 
 class RowItem extends React.Component<Props> {
@@ -71,7 +75,15 @@ class RowItem extends React.Component<Props> {
   };
 
   renderRow = () => {
-    const { icon, title, subtitle, theme, first, last } = this.props;
+    const {
+      icon,
+      title,
+      subtitle,
+      theme,
+      first,
+      last,
+      forceFullWidthTopSeparator,
+    } = this.props;
 
     return (
       <View
@@ -79,7 +91,11 @@ class RowItem extends React.Component<Props> {
           styles.row,
           {
             backgroundColor: theme.barColor,
-            borderTopWidth: first ? StyleSheet.hairlineWidth : 0,
+            borderTopWidth: forceFullWidthTopSeparator
+              ? 0
+              : first
+              ? StyleSheet.hairlineWidth
+              : 0,
             borderBottomWidth: last ? StyleSheet.hairlineWidth : 0,
             borderColor: theme.dividerColor,
           },
