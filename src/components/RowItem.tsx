@@ -109,7 +109,7 @@ class RowItem extends React.Component<Props> {
           style={[
             styles.titleWrapper,
             {
-              marginLeft: forceFullWidthTopSeparator ? 0 : icon ? 15 : 0,
+              marginLeft: icon ? 15 : 0,
               marginRight: title || subtitle ? 15 : 0,
             },
           ]}
