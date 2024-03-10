@@ -83,6 +83,7 @@ class RowItem extends React.Component<Props> {
       first,
       last,
       forceFullWidthTopSeparator,
+      forceFullWidthBottomSeparator,
     } = this.props;
 
     return (
@@ -91,12 +92,14 @@ class RowItem extends React.Component<Props> {
           styles.row,
           {
             backgroundColor: theme.barColor,
-            borderTopWidth: forceFullWidthTopSeparator
-              ? 0
-              : first
-              ? StyleSheet.hairlineWidth
-              : 0,
-            borderBottomWidth: last ? StyleSheet.hairlineWidth : 0,
+            borderTopWidth:
+              first || forceFullWidthTopSeparator
+                ? StyleSheet.hairlineWidth
+                : 0,
+            borderBottomWidth:
+              last || forceFullWidthBottomSeparator
+                ? StyleSheet.hairlineWidth
+                : 0,
             borderColor: theme.dividerColor,
           },
         ]}
@@ -106,7 +109,7 @@ class RowItem extends React.Component<Props> {
           style={[
             styles.titleWrapper,
             {
-              marginLeft: icon ? 15 : 0,
+              marginLeft: forceFullWidthTopSeparator ? 0 : icon ? 15 : 0,
               marginRight: title || subtitle ? 15 : 0,
             },
           ]}
