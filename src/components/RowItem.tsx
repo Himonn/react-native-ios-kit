@@ -83,7 +83,6 @@ class RowItem extends React.Component<Props> {
       first,
       last,
       forceFullWidthTopSeparator,
-      forceFullWidthBottomSeparator,
     } = this.props;
 
     return (
@@ -96,10 +95,7 @@ class RowItem extends React.Component<Props> {
               first || forceFullWidthTopSeparator
                 ? StyleSheet.hairlineWidth
                 : 0,
-            borderBottomWidth:
-              last || forceFullWidthBottomSeparator
-                ? StyleSheet.hairlineWidth
-                : 0,
+            borderBottomWidth: last ? StyleSheet.hairlineWidth : 0,
             borderColor: theme.dividerColor,
           },
         ]}
