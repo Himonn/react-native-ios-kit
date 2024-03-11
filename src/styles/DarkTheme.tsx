@@ -10,6 +10,7 @@ const DarkTheme: Theme = {
   barColor: 'rgb(29,58,63)',
   dividerColor: colors.greyD2,
   textColor: colors.white,
+  disabledTextColor: colors.greyD1,
   placeholderColor: colors.greyD1,
   footnoteColor: colors.greyL2,
   footnoteBackgroundColor: 'rgb(17, 29, 33)',

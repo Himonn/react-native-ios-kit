@@ -6,6 +6,7 @@ export type Theme = {
   barColor: string;
   dividerColor: string;
   textColor: string;
+  disabledTextColor: string;
   placeholderColor: string;
   footnoteColor: string;
   footnoteBackgroundColor: string;
