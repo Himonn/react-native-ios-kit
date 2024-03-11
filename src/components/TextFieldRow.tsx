@@ -41,7 +41,14 @@ class TextFieldRow extends React.Component<Props> {
         onChangeText={onValueChange}
         style={[
           styles.input,
-          { color: editable ? textColor : disabledTextColor },
+          {
+            color:
+              editable === undefined
+                ? textColor
+                : editable
+                ? textColor
+                : disabledTextColor,
+          },
         ]}
         selectionColor={primaryColor}
         editable={editable}
