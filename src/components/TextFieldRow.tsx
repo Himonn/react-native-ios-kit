@@ -61,24 +61,23 @@ class TextFieldRow extends React.Component<Props> {
   renderRightComponent = () => {
     const { clearButton, onValueChange, value } = this.props;
 
-    if (!clearButton || value.length === 0) {
-      return this.renderTextInput();
-    }
-
     return (
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <View style={{ flex: 1 }}>{this.renderTextInput()}</View>
-        <TouchableOpacity
-          onPress={() => {
-            onValueChange('');
-          }}
-        >
-          <Icon
-            name={'close-circle-outline'}
-            size={28}
-            style={{ marginLeft: 10 }}
-          />
-        </TouchableOpacity>
+
+        {clearButton && value !== '' && (
+          <TouchableOpacity
+            onPress={() => {
+              onValueChange('');
+            }}
+          >
+            <Icon
+              name={'close-circle-outline'}
+              size={28}
+              style={{ marginLeft: 10 }}
+            />
+          </TouchableOpacity>
+        )}
       </View>
     );
   };
