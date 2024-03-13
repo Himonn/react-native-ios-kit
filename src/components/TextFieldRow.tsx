@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import { TextInput, StyleSheet, View, TouchableOpacity } from 'react-native';
 
 import RowItem from './RowItem';
 import { withTheme } from '../core/theming';
 import type { Theme } from '../types/Theme';
+import Icon from './Icon';
 
 type Props = {
   theme: Theme;
@@ -11,6 +12,7 @@ type Props = {
   value: string;
   placeholder?: string;
   editable?: boolean;
+  clearButton?: boolean;
   onValueChange: (text: string) => void;
 };
 
@@ -24,7 +26,7 @@ class TextFieldRow extends React.Component<Props> {
     if (this.input.current) this.input.current.focus();
   };
 
-  renderRightComponent = () => {
+  renderTextInput = () => {
     const {
       value,
       placeholder,
@@ -55,6 +57,32 @@ class TextFieldRow extends React.Component<Props> {
       />
     );
   };
+
+  renderRightComponent = () => {
+    const { clearButton, onValueChange } = this.props;
+
+    if (!clearButton) {
+      return this.renderTextInput();
+    }
+
+    return (
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ flex: 1 }}>{this.renderTextInput()}</View>
+        <TouchableOpacity
+          onPress={() => {
+            onValueChange('');
+          }}
+        >
+          <Icon
+            name={'close-circle-outline'}
+            size={28}
+            style={{ marginLeft: 10 }}
+          />
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
   render() {
     return (
       <RowItem
@@ -73,5 +101,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     fontSize: 18,
     width: '100%',
+    paddingHorizontal: 10,
   },
 });
