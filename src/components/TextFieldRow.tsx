@@ -59,9 +59,9 @@ class TextFieldRow extends React.Component<Props> {
   };
 
   renderRightComponent = () => {
-    const { clearButton, onValueChange } = this.props;
+    const { clearButton, onValueChange, value } = this.props;
 
-    if (!clearButton) {
+    if (!clearButton || value.length === 0) {
       return this.renderTextInput();
     }
 
