@@ -13,6 +13,7 @@ type Props = {
   placeholder?: string;
   editable?: boolean;
   clearButton?: boolean;
+  box?: boolean;
   onValueChange: (text: string) => void;
 };
 
@@ -33,7 +34,18 @@ class TextFieldRow extends React.Component<Props> {
       onValueChange,
       theme: { placeholderColor, primaryColor, textColor, disabledTextColor },
       editable,
+      box,
     } = this.props;
+
+    const additionalStyles: Record<string, any> = box
+      ? {
+          backgroundColor: '#eee',
+          borderRadius: 5,
+          overflow: 'hidden',
+          minHeight: 30,
+        }
+      : {};
+
     return (
       <TextInput
         ref={this.input}
@@ -50,6 +62,7 @@ class TextFieldRow extends React.Component<Props> {
                 : editable
                 ? textColor
                 : disabledTextColor,
+            ...additionalStyles,
           },
         ]}
         selectionColor={primaryColor}
