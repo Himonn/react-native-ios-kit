@@ -44,6 +44,10 @@ type Props = {
    */
   onHeaderPress?: () => void;
   /**
+   * Removes the top and bottom separators from the first and last items respectively
+   */
+  withoutTopBottomSeparators?: boolean;
+  /**
    * Children of TableView to render, e.g. RowItem's
    */
   children?: React.ReactNode;
@@ -66,6 +70,7 @@ class TableView extends React.Component<Props> {
       footerStyle,
       onHeaderPress,
       onFooterPress,
+      withoutTopBottomSeparators,
     } = this.props;
     return (
       <View>
@@ -78,6 +83,9 @@ class TableView extends React.Component<Props> {
         )}
         {React.Children.map(children, (child, idx) => {
           if (React.isValidElement(child)) {
+            if (withoutTopBottomSeparators) {
+              return React.cloneElement(child);
+            }
             return React.cloneElement(child, {
               first: idx === 0,
               last: idx === React.Children.count(children) - 1,
