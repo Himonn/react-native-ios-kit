@@ -46,6 +46,10 @@ export type Props = {
    */
   first?: boolean;
   last?: boolean;
+  /**
+   * Removes bottom separator
+   */
+  removeBottomSeparator?: boolean;
 };
 
 class EmptyRow extends React.Component<Props> {
@@ -137,11 +141,20 @@ class EmptyRow extends React.Component<Props> {
   );
 
   render() {
-    const { last, onPress, theme } = this.props;
+    const { last, onPress, theme, removeBottomSeparator } = this.props;
     return (
       <View style={{ backgroundColor: theme.barColor }}>
         {onPress ? this.renderTouchableRow() : this.renderRow()}
-        {!last && (
+        {removeBottomSeparator && (
+          <View
+            style={[
+              {
+                backgroundColor: theme.dividerColor,
+              },
+            ]}
+          />
+        )}
+        {!last && !removeBottomSeparator && (
           <View
             style={[
               styles.separator,
