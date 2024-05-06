@@ -13,7 +13,9 @@ type Props = {
   placeholder?: string;
   editable?: boolean;
   clearButton?: boolean;
+  autoHideClearIcon?: boolean;
   box?: boolean;
+  iconColour?: string;
   onValueChange: (text: string) => void;
 };
 
@@ -72,25 +74,34 @@ class TextFieldRow extends React.Component<Props> {
   };
 
   renderRightComponent = () => {
-    const { clearButton, onValueChange, value } = this.props;
+    // @ts-ignore
+    const {
+      clearButton,
+      onValueChange,
+      value,
+      iconColour,
+      autoHideClearIcon,
+    } = this.props;
 
     return (
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <View style={{ flex: 1 }}>{this.renderTextInput()}</View>
 
-        {clearButton && value !== '' && (
-          <TouchableOpacity
-            onPress={() => {
-              onValueChange('');
-            }}
-          >
-            <Icon
-              name={'close-circle-outline'}
-              size={28}
-              style={{ marginLeft: 10 }}
-            />
-          </TouchableOpacity>
-        )}
+        {clearButton &&
+          ((autoHideClearIcon && value !== '') || !autoHideClearIcon) && (
+            <TouchableOpacity
+              onPress={() => {
+                onValueChange('');
+              }}
+            >
+              <Icon
+                name={'close-circle-outline'}
+                size={28}
+                style={{ marginLeft: 10 }}
+                {...(iconColour !== undefined && { color: iconColour })}
+              />
+            </TouchableOpacity>
+          )}
       </View>
     );
   };
