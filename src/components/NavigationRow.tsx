@@ -12,6 +12,8 @@ type Props = RowProps & {
   theme: Theme;
   onPress: () => void;
   info?: string;
+  chevronColour?: string;
+  iconColour?: string;
 };
 
 class NavigationRow extends React.Component<Props> {
@@ -19,6 +21,7 @@ class NavigationRow extends React.Component<Props> {
     const {
       info,
       theme: { placeholderColor },
+      chevronColour,
     } = this.props;
     return (
       <View style={styles.row}>
@@ -30,7 +33,7 @@ class NavigationRow extends React.Component<Props> {
         <Icon
           name="chevron-forward-outline"
           size={22}
-          color={placeholderColor}
+          color={chevronColour ? chevronColour : placeholderColor}
         />
       </View>
     );

@@ -57,6 +57,10 @@ export type Props = {
    * Forces the separator to be full width at bottom
    */
   removeBottomSeparator?: boolean;
+  /**
+   * Forces the colour of the icon
+   */
+  iconColour?: string;
 };
 
 class RowItem extends React.Component<Props> {
@@ -87,6 +91,7 @@ class RowItem extends React.Component<Props> {
       first,
       last,
       forceFullWidthTopSeparator,
+      iconColour,
     } = this.props;
 
     return (
@@ -104,7 +109,13 @@ class RowItem extends React.Component<Props> {
           },
         ]}
       >
-        {icon && <Icon name={icon} size={30} color={theme.primaryColor} />}
+        {icon && (
+          <Icon
+            name={icon}
+            size={30}
+            color={iconColour ? iconColour : theme.primaryColor}
+          />
+        )}
         <View
           style={[
             styles.titleWrapper,
