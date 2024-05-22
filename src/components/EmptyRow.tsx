@@ -50,6 +50,10 @@ export type Props = {
    * Removes bottom separator
    */
   removeBottomSeparator?: boolean;
+  /**
+   * Removes top separator
+   */
+  removeTopSeparator?: boolean;
 };
 
 class EmptyRow extends React.Component<Props> {
@@ -108,7 +112,13 @@ class EmptyRow extends React.Component<Props> {
   };
 
   renderRow = () => {
-    const { theme, first, last } = this.props;
+    const {
+      theme,
+      first,
+      last,
+      removeBottomSeparator,
+      removeTopSeparator,
+    } = this.props;
 
     return (
       <View
@@ -116,8 +126,16 @@ class EmptyRow extends React.Component<Props> {
           styles.row,
           {
             backgroundColor: theme.barColor,
-            borderTopWidth: first ? StyleSheet.hairlineWidth : 0,
-            borderBottomWidth: last ? StyleSheet.hairlineWidth : 0,
+            borderTopWidth: removeTopSeparator
+              ? 0
+              : first
+              ? StyleSheet.hairlineWidth
+              : 0,
+            borderBottomWidth: removeBottomSeparator
+              ? 0
+              : last
+              ? StyleSheet.hairlineWidth
+              : 0,
             borderColor: theme.dividerColor,
           },
         ]}
