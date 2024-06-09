@@ -24,20 +24,23 @@ You can find original documentation with all list of features and components [he
 - Merged [#5](https://github.com/Himonn/react-native-ios-kit/pull/5) to add `EmptyRow`
 - Merged [#7](https://github.com/Himonn/react-native-ios-kit/pull/7) to add `onHeaderPress` to `TableView`
 - Merged [#8](https://github.com/Himonn/react-native-ios-kit/pull/8) to add `disabledColoor` prop to `Button`
-- Add forceFullWidthBottomSeparator and forceFullWidthTopSeparator to RowItem
-- Add box prop to TextFieldRow
-- Add clear button to textfieldrow
-- Add hideClearButton on empty row
-- Add removeBottomSeparator to RowItem and withoutTopBottomSeparators to TableView
-- Add removeBottomSeparator to EmptyRow
-- Add iconColour and chevronColour to NavigationRow and RowItem
+- Favour committing to `master` over branching and merging
+- Add `forceFullWidthBottomSeparator` and `forceFullWidthTopSeparator` to `RowItem`
+- Add `box` prop to `TextFieldRow`
+- Add clear button to `TextFieldRow`
+- Add `hideClearButton` to `EmptyRow`
+- Add `removeBottomSeparator` to `RowItem`
+- Add `withoutTopBottomSeparators` to `TableView`
+- Add `removeBottomSeparator` to `EmptyRow`
+- Add `iconColour` and `chevronColour` to `NavigationRow` and `RowItem`
+- Add `removeTopSeparator` to `EmptyRow`
 - Add iconColour and autoHideClearIcon to textFieldRow
-- Adjust behaviour of fullWidthTopSeparator
+- Adjust behaviour of `fullWidthTopSeparator`
 - Disable commitlint
-- Fix non-editable TextInput logic
-- Fix broken NavigationRow icons
-- Fix visibility of disabled icon on TextFieldRow
-- Fix removeBottomSeparator and add removeTopSeparator to EmptyRow
+- Fix non-editable `TextInput` logic
+- Fix broken `NavigationRow` icons
+- Fix visibility of disabled icon on `TextFieldRow`
+- Fix `removeBottomSeparator`
 
 ## Fork Usage
 
